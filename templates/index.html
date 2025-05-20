@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health Care Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .logo { width: 50px; height: 50px; margin-left: 2px; }
+    .myimg { width: 50px; height: 50px; border: 2px solid black; border-radius: 25px; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="logo">
+      <img class="myimg" src="{{ url_for('static', filename='img.png') }}" alt="">
+    </div>
+    <a class="navbar-brand" href="#">Health Care Center</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+      </ul>
+      <div class="d-flex">
+        <button class="btn btn-outline-success" onclick="clearInput()" style="border-radius: 20px;">Clear</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Form -->
+<h1 class="text-center mt-4">Health Care Center</h1>
+<div class="container my-4" style="background: black; color: white; border-radius: 15px; padding: 40px;">
+  <form action="/predict" method="post">
+    <div class="form-group">
+      <label for="symptoms">Type Symptoms:</label>
+      <input type="text" class="form-control" id="symptoms" name="symptoms" placeholder="e.g. itching, headache, vomiting">
+    </div>
+    <br>
+    {% if message %}<p style="color:red;">{{ message }}</p>{% endif %}
+    <button type="submit" class="btn btn-danger btn-lg w-100 mt-2">Predict</button>
+  </form>
+</div>
+
+<!-- Prediction Results -->
+{% if predicted_disease %}
+<h2 class="text-center my-4">Our AI Doctor Predictions</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Disease: {{ predicted_disease }}</h5>
+      <p><strong>Description:</strong> {{ dis_des }}</p>
+      <p><strong>Precautions:</strong> {{ my_precautions | join(', ') }}</p>
+      <p><strong>Medications:</strong> {{ medications | join(', ') }}</p>
+      <p><strong>Diet:</strong> {{ my_diet | join(', ') }}</p>
+      <p><strong>Workouts:</strong> {{ workout | join(', ') }}</p>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Scripts -->
+<script>
+  const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
+  startSpeechRecognitionButton.addEventListener('click', () => {
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.onresult = function(event) {
+      document.getElementById('symptoms').value = event.results[0][0].transcript;
+    };
+    recognition.start();
+  });
+
+  function clearInput() {
+    document.getElementById('symptoms').value = '';
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
