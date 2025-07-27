@@ -1,4 +1,4 @@
-#🩺 Personalized Medical Recommendation System with Machine Learning
+# 🩺 Personalized Medical Recommendation System with Machine Learning
 A smart, ML-powered health assistant that predicts diseases based on symptoms and provides personalized medical recommendations, all accessible through an intuitive web interface.
 
 🚀 Features:
