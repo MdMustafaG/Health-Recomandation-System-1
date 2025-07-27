@@ -2,17 +2,22 @@
 A smart, ML-powered health assistant that predicts diseases based on symptoms and provides personalized medical recommendations, all accessible through an intuitive web interface.
 
 🚀 Features:
-✅ Symptom-Based Disease Prediction
+✅ Symptom-Based Disease Prediction:
 Uses advanced machine learning models to predict potential diseases based on user-input symptoms.
-✅ Personalized Medical Recommendations
+
+✅ Personalized Medical Recommendations:
 Recommends the top 5 medicines, relevant prescriptions, and workout routines tailored to the predicted condition.
-✅ User-Friendly Interface
+
+✅ User-Friendly Interface:
 Simple and intuitive UI for users to input symptoms and receive instant health insights.
-✅ Flask Web App Integration
+
+✅ Flask Web App Integration:
 Fully integrated with Flask for fast, interactive, and platform-independent web access.
-✅ Data Privacy & Security
+
+✅ Data Privacy & Security:
 Prioritizes secure handling of user health data in accordance with industry privacy standards.
-✅ Self-Improving System
+
+✅ Self-Improving System:
 Continuously improves as more data is processed, making predictions and recommendations more accurate over time.
 
 🧠 Tech Stack & Key Skills:
