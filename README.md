@@ -40,12 +40,17 @@ Continuously improves as more data is processed, making predictions and recommen
 
 ⚙️ How to Run the Project:
 # 1. Clone the repository
+```bas
 git clone https://github.com/yourusername/personalized-medical-recommender.git
+```
+```bas
 cd personalized-medical-recommender
-
+```
 # 2. Install required packages
+```bas
 pip install -r requirements.txt
-
+```
 # 3. Run the Flask app
+```bas
 python app.py
-
+```
