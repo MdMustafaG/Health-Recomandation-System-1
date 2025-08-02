@@ -31,11 +31,17 @@ Continuously improves as more data is processed, making predictions and recommen
 | Others           | Data Preprocessing, Feature Engineering, etc. |
 
 📂 Project Structure: 
+
 ├── datasets/         # Contains symptom and medicine data
+
 ├── static/           # CSS or images (for frontend styling)
+
 ├── templates/        # HTML templates (for Flask rendering)
+
 ├── main.py           # Main Flask application script
+
 ├── svc.pkl           # Trained ML model (Support Vector Classifier)
+
 └── README.md         # Project documentation
 
 ⚙️ How to Run the Project:
